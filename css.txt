@@ -1,0 +1,49 @@
+/* Bestehende Stile */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #514a4a;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #00aeff;
+    font-size: 48px;
+}
+
+/* Neue Stile für die Buttons */
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.btn.on {
+    background-color: #28a745; /* Grün für den On-Button */
+}
+
+.btn.off {
+    background-color: #dc3545; /* Rot für den Off-Button */
+}
+
+.btn.on:hover {
+    background-color: #218838; /* Dunkleres Grün beim Hover */
+}
+
+.btn.off:hover {
+    background-color: #c82333; /* Dunkleres Rot beim Hover */
+}

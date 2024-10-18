@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPI Led Control</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>RPI Led Control</h1>
+    </header>
+
+    <div class="button-container">
+        <form action="/led_control" method="POST">
+            <button class="btn on" type="submit" name="led_status" value="on">On</button>
+            <button class="btn off" type="submit" name="led_status" value="off">Off</button>
+        </form>
+        
+    </div>
+    {% if message %}
+        <div class="message">{{ message }}</div>
+    {% endif %}
+    
+</body>
+</html>

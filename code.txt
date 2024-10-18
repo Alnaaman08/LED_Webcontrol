@@ -1,0 +1,31 @@
+from flask import Flask, render_template, request
+import RPi.GPIO as GPIO
+from datetime import datetime 
+
+app = Flask(__name__)
+
+led = 5
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(led, GPIO.OUT)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/led_control', methods=['POST'])
+def led_control():
+    message = None
+    action = request.form.get("led_status")
+    if action == "on":
+        last_on_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        message = f"The LED was last turned at {last_on_time}"
+        GPIO.output(led, GPIO.HIGH)
+    
+    elif action == "off":
+        message = "The LED is off"
+        GPIO.output(led, GPIO.LOW)
+
+    return render_template('index.html', message=message)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
